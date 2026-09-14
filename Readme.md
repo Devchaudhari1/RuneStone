@@ -9,7 +9,7 @@
     pip install -r requirements.txt
 ```
 
-```mermaid
+```
 ---/root
     ---/models
         ---/Qwen3-4B-GGUF
