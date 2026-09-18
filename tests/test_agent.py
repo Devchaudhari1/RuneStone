@@ -1,12 +1,16 @@
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_ROOT))
+
 from agent import RuneStoneAgent
 
 
 def main():
     agent = RuneStoneAgent()
 
-    result = agent.run(
-        "Inspect server/llm.py and explain what the LocalLLM class does."
-    )
+    result = agent.run( "Explain how FAISS and BGE Embedding works?" )
 
     print("\n==============================")
     print("Rune Stone")

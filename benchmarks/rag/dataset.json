@@ -1,0 +1,129 @@
+{
+  "queries": [
+    {
+      "id": "q1",
+      "query": "How long do authentication access tokens last?",
+      "expected_sources": ["docs/authentication.md"]
+    },
+    {
+      "id": "q2",
+      "query": "What authentication mechanism does RuneStone use?",
+      "expected_sources": ["docs/authentication.md"]
+    },
+    {
+      "id": "q3",
+      "query": "What happens after a successful login?",
+      "expected_sources": ["docs/authentication.md"]
+    },
+    {
+      "id": "q4",
+      "query": "Where is the local language model served?",
+      "expected_sources": ["docs/architecture.md"]
+    },
+    {
+      "id": "q5",
+      "query": "What does the RuneStone agent use tools for?",
+      "expected_sources": ["docs/architecture.md","docs/tools.md"]
+    },
+    {
+      "id": "q6",
+      "query": "How does RuneStone isolate command execution?",
+      "expected_sources": ["docs/sandbox.md"]
+    },
+    {
+      "id": "q7",
+      "query": "Can commands running in the sandbox access the network?",
+      "expected_sources": ["docs/sandbox.md"]
+    },
+    {
+      "id": "q8",
+      "query": "What resource limits are applied to sandbox containers?",
+      "expected_sources": ["docs/sandbox.md"]
+    },
+    {
+      "id": "q9",
+      "query": "Which embedding model is used for semantic search?",
+      "expected_sources": ["docs/retrieval.md"]
+    },
+    {
+      "id": "q10",
+      "query": "How does hybrid knowledge retrieval rank results?",
+      "expected_sources": ["docs/retrieval.md"]
+    },
+    {
+      "id": "q11",
+      "query": "What happens when a knowledge-base file is modified?",
+      "expected_sources": ["docs/retrieval.md"]
+    },
+    {
+      "id": "q12",
+      "query": "Which tool should I use to make a precise change to an existing file?",
+      "expected_sources": ["docs/tools.md","notes/development_notes.md"]
+    },
+    {
+      "id": "q13",
+      "query": "How can the agent search source code semantically?",
+      "expected_sources": ["docs/tools.md"]
+    },
+    {
+      "id": "q14",
+      "query": "What should benchmarks measure besides final correctness?",
+      "expected_sources": ["notes/development_notes.md"]
+    },
+    {
+      "id": "q15",
+      "query": "When should retrieval weights be tuned?",
+      "expected_sources": ["notes/development_notes.md"]
+    },
+    {
+      "id": "q16",
+      "query": "What converts source code into numerical representations?",
+      "expected_sources": ["docs/retrieval.md"]
+    },
+    {
+      "id": "q17",
+      "query": "How can I change one specific part of an existing file?",
+      "expected_sources": ["docs/tools.md","notes/development_notes.md"]
+    },
+    {
+      "id": "q18",
+      "query": "What prevents programs executed by RuneStone from reaching the internet?",
+      "expected_sources": ["docs/sandbox.md"]
+    },
+    {
+      "id": "q19",
+      "query": "Where are vectors saved for similarity search?",
+      "expected_sources": ["docs/retrieval.md"]
+    },
+    {
+      "id": "q20",
+      "query": "What component actually runs shell commands?",
+      "expected_sources": ["docs/tools.md","docs/sandbox.md"]
+    },
+    {
+      "id": "q21",
+      "query": "How does RuneStone know that knowledge files have changed?",
+      "expected_sources": ["docs/retrieval.md"]
+    },
+    {
+      "id": "q22",
+      "query": "What happens to API credentials after half an hour?",
+      "expected_sources": ["docs/authentication.md"]
+    },
+    {
+      "id": "q23",
+      "query": "What protects the host machine when executing commands?",
+      "expected_sources": ["docs/sandbox.md"]
+    },
+    {
+      "id": "q24",
+      "query": "What does RuneStone use to find relevant information in its documentation?",
+      "expected_sources": ["docs/retrieval.md"]
+    },
+    {
+      "id": "q25",
+      "query": "What mechanism allows the agent to modify existing source without replacing the whole file?",
+      "expected_sources": ["docs/tools.md","notes/development_notes.md"]
+    }
+  ]
+}

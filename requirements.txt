@@ -1,5 +1,7 @@
-torch 
 transformers
-bitsandbytes
-accelerate
 openai
+tree-sitter
+tree-sitter-python
+sentence-transformers
+faiss-cpu
+requests

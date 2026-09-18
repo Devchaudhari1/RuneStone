@@ -1,3 +1,23 @@
+# Local models
 /models/Qwen3-4B-GGUF/
+
+# Results
+results/
+
+# Workspace
+workspace/
+
+# Python cache
 __pycache__/
 *.pyc
+.pytest_cache/
+# Virtual environment
+.venv/
+venv/
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
