@@ -1,0 +1,8 @@
+{
+    "id": "task_001_single_bug",
+    "name": "Fix single addition bug",
+    "description": "Fix the broken add function.",
+    "workspace": "task_workspace",
+    "test_command": "pytest -q test_calculator.py",
+    "test_directory": "."
+}

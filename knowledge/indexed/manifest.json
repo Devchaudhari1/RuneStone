@@ -1,0 +1,26 @@
+{
+  "docs/architecture.md": {
+    "mtime_ns": 1789740108339018300,
+    "size": 739
+  },
+  "docs/authentication.md": {
+    "mtime_ns": 1789740156862313700,
+    "size": 274
+  },
+  "docs/retrieval.md": {
+    "mtime_ns": 1789740136130176400,
+    "size": 930
+  },
+  "docs/sandbox.md": {
+    "mtime_ns": 1789740121206385200,
+    "size": 753
+  },
+  "docs/tools.md": {
+    "mtime_ns": 1789740147533725000,
+    "size": 860
+  },
+  "notes/development_notes.md": {
+    "mtime_ns": 1789740177372736100,
+    "size": 714
+  }
+}

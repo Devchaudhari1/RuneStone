@@ -1,0 +1,227 @@
+[
+  {
+    "source": "docs/architecture.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "RuneStone Architecture",
+    "start_line": 1,
+    "end_line": 8,
+    "text": "# RuneStone Architecture\n\nRuneStone is a local AI coding and computer agent.\n\nThe main agent receives a user request, reasons about the task, and can call tools to inspect files, edit code, search repositories, retrieve knowledge, and execute commands.\n\nThe local Qwen3-4B model provides the language-model reasoning layer."
+  },
+  {
+    "source": "docs/architecture.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Agent and Tools",
+    "start_line": 9,
+    "end_line": 14,
+    "text": "## Agent and Tools\n\nThe agent communicates with tools through a tool registry.\n\nFilesystem operations, terminal execution, code search, semantic search, and knowledge retrieval are exposed as registered tools."
+  },
+  {
+    "source": "docs/architecture.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Local Inference",
+    "start_line": 15,
+    "end_line": 19,
+    "text": "## Local Inference\n\nRuneStone uses a local Qwen3-4B model served through an OpenAI-compatible llama.cpp server.\n\nThe inference server runs on localhost and exposes the API on port 8080."
+  },
+  {
+    "source": "docs/authentication.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Authentication",
+    "start_line": 1,
+    "end_line": 4,
+    "text": "# Authentication\n\nRuneStone currently uses JWT-based authentication."
+  },
+  {
+    "source": "docs/authentication.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Login",
+    "start_line": 5,
+    "end_line": 8,
+    "text": "## Login\n\nAccess tokens are generated after successful login."
+  },
+  {
+    "source": "docs/authentication.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "API Requests",
+    "start_line": 9,
+    "end_line": 12,
+    "text": "## API Requests\n\nAccess tokens are sent with authenticated API requests."
+  },
+  {
+    "source": "docs/authentication.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Expiration",
+    "start_line": 13,
+    "end_line": 15,
+    "text": "## Expiration\n\nAccess tokens expire after 30 minutes."
+  },
+  {
+    "source": "docs/retrieval.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Retrieval",
+    "start_line": 1,
+    "end_line": 4,
+    "text": "# Retrieval\n\nRuneStone provides multiple retrieval systems for coding and knowledge tasks."
+  },
+  {
+    "source": "docs/retrieval.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Semantic Search",
+    "start_line": 5,
+    "end_line": 10,
+    "text": "## Semantic Search\n\nSemantic code search uses the BAAI/bge-small-en-v1.5 embedding model.\n\nEmbeddings are stored in a FAISS index for efficient similarity search."
+  },
+  {
+    "source": "docs/retrieval.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Hybrid Retrieval",
+    "start_line": 11,
+    "end_line": 16,
+    "text": "## Hybrid Retrieval\n\nKnowledge retrieval combines semantic similarity with lexical matching.\n\nThe current ranking combines semantic and lexical scores, with semantic similarity weighted more heavily."
+  },
+  {
+    "source": "docs/retrieval.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Knowledge Sources",
+    "start_line": 17,
+    "end_line": 26,
+    "text": "## Knowledge Sources\n\nThe knowledge base supports documentation, notes, and external knowledge.\n\nDocumentation is stored under knowledge/docs/.\n\nNotes are stored under knowledge/notes/.\n\nExternal knowledge is stored under knowledge/external/."
+  },
+  {
+    "source": "docs/retrieval.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Persistent Index",
+    "start_line": 27,
+    "end_line": 31,
+    "text": "## Persistent Index\n\nThe knowledge index stores FAISS vectors and metadata on disk.\n\nA manifest tracks indexed files so the index can automatically rebuild when files are added, modified, or deleted."
+  },
+  {
+    "source": "docs/sandbox.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Sandbox",
+    "start_line": 1,
+    "end_line": 6,
+    "text": "# Sandbox\n\nRuneStone executes potentially unsafe commands inside a Docker sandbox.\n\nThe sandbox uses a dedicated non-root user named runestone."
+  },
+  {
+    "source": "docs/sandbox.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Isolation",
+    "start_line": 7,
+    "end_line": 14,
+    "text": "## Isolation\n\nSandbox containers use network isolation so commands cannot access the external network.\n\nThe container filesystem is read-only except for the mounted workspace and a temporary filesystem.\n\nLinux capabilities are dropped from the container."
+  },
+  {
+    "source": "docs/sandbox.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Resource Limits",
+    "start_line": 15,
+    "end_line": 20,
+    "text": "## Resource Limits\n\nThe sandbox limits memory, CPU usage, and the number of processes.\n\nCommands also have a configurable timeout to prevent indefinitely running processes."
+  },
+  {
+    "source": "docs/sandbox.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Workspace",
+    "start_line": 21,
+    "end_line": 25,
+    "text": "## Workspace\n\nThe RuneStone workspace is mounted at /workspace inside the container.\n\nCommands are executed relative to the requested workspace directory."
+  },
+  {
+    "source": "docs/tools.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Tools",
+    "start_line": 1,
+    "end_line": 4,
+    "text": "# Tools\n\nRuneStone exposes several tools to the agent."
+  },
+  {
+    "source": "docs/tools.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Filesystem Tools",
+    "start_line": 5,
+    "end_line": 16,
+    "text": "## Filesystem Tools\n\nread_file reads an existing text file.\n\nlist_directory lists files and directories inside the workspace.\n\nsearch_files searches workspace files for matching text.\n\nwrite_file creates or replaces a file.\n\nedit_file performs a precise modification to an existing file."
+  },
+  {
+    "source": "docs/tools.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Terminal",
+    "start_line": 17,
+    "end_line": 22,
+    "text": "## Terminal\n\nrun_command executes a command through the Docker sandbox.\n\nThe terminal tool passes the requested workspace directory to the sandbox."
+  },
+  {
+    "source": "docs/tools.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Code Retrieval",
+    "start_line": 23,
+    "end_line": 28,
+    "text": "## Code Retrieval\n\nsearch_code searches source code using the code index.\n\nsearch_semantic performs semantic search over source code."
+  },
+  {
+    "source": "docs/tools.md",
+    "type": "knowledge",
+    "source_type": "documentation",
+    "heading": "Knowledge Retrieval",
+    "start_line": 29,
+    "end_line": 33,
+    "text": "## Knowledge Retrieval\n\nsearch_knowledge searches the RuneStone knowledge base using hybrid retrieval.\n\nThe search tool can optionally restrict results to documentation, notes, or external knowledge."
+  },
+  {
+    "source": "notes/development_notes.md",
+    "type": "knowledge",
+    "source_type": "notes",
+    "heading": "Development Notes",
+    "start_line": 1,
+    "end_line": 2,
+    "text": "# Development Notes"
+  },
+  {
+    "source": "notes/development_notes.md",
+    "type": "knowledge",
+    "source_type": "notes",
+    "heading": "Benchmarking",
+    "start_line": 3,
+    "end_line": 10,
+    "text": "## Benchmarking\n\nRuneStone benchmarks should measure both agent behavior and final task correctness.\n\nAgent validation records whether the agent itself ran a successful test.\n\nIndependent validation checks the final workspace state separately from the agent's own validation."
+  },
+  {
+    "source": "notes/development_notes.md",
+    "type": "knowledge",
+    "source_type": "notes",
+    "heading": "Editing",
+    "start_line": 11,
+    "end_line": 16,
+    "text": "## Editing\n\nFor existing files, RuneStone should prefer minimal edits instead of rewriting entire files.\n\nThe edit_file tool supports exact text replacement and optional source ranges."
+  },
+  {
+    "source": "notes/development_notes.md",
+    "type": "knowledge",
+    "source_type": "notes",
+    "heading": "Future Work",
+    "start_line": 17,
+    "end_line": 21,
+    "text": "## Future Work\n\nThe RAG benchmark should contain queries that require distinguishing between multiple knowledge sources.\n\nRetrieval weights should only be tuned after establishing a baseline evaluation dataset."
+  }
+]
