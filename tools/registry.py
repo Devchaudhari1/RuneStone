@@ -10,7 +10,7 @@ from tools.terminal import run_command
 from tools.code_index import search_code
 from tools.semantic_search import search_semantic
 from tools.knowledge_search import search_knowledge
-
+from tools.web_search import web_search
 from tools.knowledge_ingest import (
     ingest_knowledge,
     refresh_knowledge,
@@ -30,6 +30,7 @@ TOOLS = {
     "ingest_knowledge": ingest_knowledge,
     "refresh_knowledge": refresh_knowledge,
     "remove_knowledge": remove_knowledge,
+    "web_search": web_search,
 }
 
 
