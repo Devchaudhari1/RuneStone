@@ -1,3 +1,33 @@
+WEB_SEARCH_SCHEMA = {
+    "type": "function",
+    "function": {
+        "name": "web_search",
+        "description": (
+            "Search the current web through RuneStone's local SearXNG "
+            "search service. Use this for current, recent, external, "
+            "or unknown information that may not exist in the local "
+            "RuneStone knowledge base."
+        ),
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "description": "The web search query.",
+                },
+                "max_results": {
+                    "type": "integer",
+                    "description": "Maximum number of search results to return.",
+                    "minimum": 1,
+                    "maximum": 10,
+                    "default": 5,
+                },
+            },
+            "required": ["query"],
+        },
+    },
+}
+
 TOOLS_SCHEMA = [
     {
         "type": "function",
@@ -311,5 +341,6 @@ TOOLS_SCHEMA = [
                 "required": ["url"]
             }
         }
-    }
+    },
+    WEB_SEARCH_SCHEMA,
 ]
